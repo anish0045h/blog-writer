@@ -30,3 +30,16 @@ Install the required Python packages:
 
 ```bash
 pip install langchain langgraph langchain-groq langchain-community tavily-search python-dotenv pydantic
+
+Do not hard-code API keys in source control. Use environment variables instead:
+export GROQ_API_KEY="your_api_key_here"
+
+In Python:
+
+import os
+
+llm = ChatGroq(
+    model="llama-3.3-70b-versatile",
+    groq_api_key=os.getenv("GROQ_API_KEY")
+)
+
